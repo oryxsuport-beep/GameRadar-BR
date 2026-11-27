@@ -125,3 +125,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Perfil de PC validado, plataforma Windows/Linux/macOS, VRAM dedicada opcional. Compara RAM, disco e VRAM apenas com requisitos numéricos explícitos de Windows, informa plataforma listada e exibe CPU/GPU/sistema lado a lado para conferência manual. Não estima FPS nem garante compatibilidade.
 - Planejador por menor preço, desconto ou popularidade Steam informada; opção padrão de preços regionais em reais. Seleção da amostra atual, sem garantia de ótimo global.
 - v3.5-prep.7 confirmada online pelo Render; ganho de velocidade ainda não medido. Sintaxe e testes simulados das ferramentas aprovados; falta validação no navegador. Banco e senha administrativa continuam pendentes.
+
+## v3.5-prep.9 — modos de jogo e controles
+- Categorias numéricas Steam incluídas nas ofertas e catálogo. Filtros de multijogador, cooperativo e competitivo local/online, tela compartilhada/dividida, controles, Remote Play Together, multiplayer multiplataforma e um jogador. Catálogo Steam consulta categoria e revalida metadados retornados; filtros da grade usam somente recursos informados.
+- Selos nos cards e recursos adicionais nos detalhes. Categorias ausentes não são inferidas; tela compartilhada/dividida não confirma especificamente tela dividida, crossplay não identifica plataformas, suporte a controle não garante dois controles ou número de jogadores.
+- v3.5-prep.8 online. Metadados reais de It Takes Two, Mortal Kombat 11 e Cyberpunk 2077 consultados; fixtures de classificação e sintaxe aprovadas. Falta testar filtros publicados e paginação por categoria. Banco permanente e senha administrativa pendentes.
