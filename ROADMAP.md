@@ -53,3 +53,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Publicação v3.2 confirmada pelo Render. Reteste HTTP externo retornou 503 inclusive em /health; logs confirmam início do processo, mas não explicam a indisponibilidade.
 - Cache fresco reduzido a cinco minutos; fallback temporário de até uma hora identificado pelo horário original nas ofertas Steam. Limite global de 24 consultas externas simultâneas, descarte incremental do cache e métricas agregadas em /api/status.
 - Banco Supabase ainda não conectado. A nova versão precisa de testes HTTP reais.
+
+## v3.3.2 — links individuais de oferta
+- Consulta CheapShark por SteamAppID retorna uma lista de correspondências; agora busca detalhes pelo gameID correspondente e valida novamente o SteamAppID antes de incluir as ofertas.
+- Exemplo real confirmado: Cyberpunk 2077 (Steam 1091500, CheapShark 202350) retornou dois dealIDs na consulta de detalhes. Testes simulados de correspondência aprovados.
+- Interface prioriza links específicos e separa comparações. O destino final dos redirects CheapShark não foi confirmado, pois a verificação externa foi bloqueada. SuperDuperBundle ainda fornece apenas a comparação do jogo.
