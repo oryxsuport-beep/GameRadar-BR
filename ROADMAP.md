@@ -11,7 +11,8 @@ Objetivo: comparar ofertas de jogos e keys com preços em reais, transparência 
 - [ ] v2.2 persistência: adaptador Supabase e schema SQL preparados; falta criar/autorizar projeto externo, aplicar schema, configurar segredos no Render e validar leitura/escrita. Histórico de outras lojas, coleta contínua, cache persistente e detecção robusta de descontos ainda pendentes.
 - [x] v2.3 perfil local (parcial): favoritos, backup/importação, metas em BRL para Steam e CheapShark, consultas em primeiro plano a cada cinco minutos, notificações opcionais do navegador quando suportadas.
 - [ ] v2.3 contas online: autenticação, sincronização, notificações em segundo plano, email/Telegram/Discord e painel de economia; dependem de infraestrutura externa autorizada.
-- [ ] v2.4 expansão: Xbox, PlayStation, Nintendo, assinaturas, bundles, gift cards e categorias gratuitas.
+- [x] v2.4 expansão parcial: hub de assinaturas com páginas oficiais Xbox Game Pass, PlayStation Plus e Nintendo Switch Online; adaptador experimental do catálogo brasileiro Game Pass para console e PC, paginado; jogos Steam free-to-play e resgates Epic com prazo confirmado. Testes simulados de produto e validade de resgate aprovados.
+- [ ] v2.4 expansão restante: validação real do Game Pass e catálogo Steam, preços de compra de consoles, comparação de preços de assinaturas, catálogo automatizado PlayStation/Nintendo, bundles e gift cards.
 - [ ] v2.5 inteligência: requisitos de PC, orçamento, recomendações, avaliações, duração, cooperativo, lançamentos e previsão de preço com incerteza.
 - [ ] v3.0 infraestrutura: PWA, administração, testes de regressão, backups, proteção de API e acessibilidade.
 
