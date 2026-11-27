@@ -1,15 +1,18 @@
 // Anonymous browser-tab session counts. No visitor identifiers are collected.
 export function makeVisitCounter({now=()=>Date.now(),log=console.log,maxPerMinute=120}={}){
   let day='',count=0,minute=-1,accepted=0;
-  return function visit(){
+  const startedAt=new Date(now()).toISOString(),days=new Map();
+  function visit(){
     const time=now(),date=new Date(time).toISOString().slice(0,10),slot=Math.floor(time/60000);
     if(day!==date){day=date;count=0}
     if(minute!==slot){minute=slot;accepted=0}
     if(accepted>=maxPerMinute)return false;
-    accepted++;count++;
+    accepted++;count++;days.set(day,count);while(days.size>7)days.delete(days.keys().next().value);
     log('GR_VISITS day='+day+' sessions='+count);
     return true;
   }
+  visit.snapshot=()=>({startedAt,days:[...days.entries()].map(([day,sessions])=>({day,sessions})),today:days.get(new Date(now()).toISOString().slice(0,10))||0,total:[...days.values()].reduce((a,b)=>a+b,0)});
+  return visit;
 }
 export function visitRequestAllowed(req,origin){
   const h=req.headers||{};
