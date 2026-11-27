@@ -13,7 +13,8 @@ Objetivo: comparar ofertas de jogos e keys com preços em reais, transparência 
 - [ ] v2.3 contas online: autenticação, sincronização, notificações em segundo plano, email/Telegram/Discord e painel de economia; dependem de infraestrutura externa autorizada.
 - [x] v2.4 expansão parcial: hub de assinaturas com páginas oficiais Xbox Game Pass, PlayStation Plus e Nintendo Switch Online; adaptador experimental do catálogo brasileiro Game Pass para console e PC, paginado; jogos Steam free-to-play e resgates Epic com prazo confirmado. Testes simulados de produto e validade de resgate aprovados.
 - [ ] v2.4 expansão restante: validação real do Game Pass e catálogo Steam, preços de compra de consoles, comparação de preços de assinaturas, catálogo automatizado PlayStation/Nintendo, bundles e gift cards.
-- [ ] v2.5 inteligência: requisitos de PC, orçamento, recomendações, avaliações, duração, cooperativo, lançamentos e previsão de preço com incerteza.
+- [x] v2.5 ferramentas (parcial): perfil de hardware local, comparação numérica conservadora de RAM e armazenamento com requisitos Steam, descrição e modos de jogo informados pela fonte, recomendações por gêneros em comum, planejador de compras em BRL, análise descritiva de preços observados com mínimo de três dias.
+- [ ] v2.5 restante: benchmarks verificáveis de CPU/GPU, estimativas de desempenho, duração dos jogos, avaliações, previsão de preço e validação real das ferramentas. Não há IA generativa ou garantia de compatibilidade nesta versão.
 - [ ] v3.0 infraestrutura: PWA, administração, testes de regressão, backups, proteção de API e acessibilidade.
 
 ## Critérios de aceite
