@@ -74,3 +74,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - v3.4 confirmada em produção; /api/free retornou Bread and Fred com link de produto e preço original. /api/browse Epic continuava em HTTP 502.
 - Catálogo principal continua sendo consultado; em falha, usa seleção limitada do feed oficial de promoções com preço BRL positivo e link específico. Resgates gratuitos permanecem na área Grátis. Interface identifica cobertura parcial ou fonte indisponível, sem simular catálogo completo. Testes simulados de filtragem, deduplicação e paginação aprovados.
 - Falta validar nova publicação e recuperar a integração completa com a Epic; Supabase ainda depende de conexão.
+
+## v3.4.2 — catálogo complementar Epic
+- v3.4.1 online: rota Epic retornou nove jogos via feed oficial, sem HTTP 502.
+- egdata retorna catálogo de terceiros com milhares de registros; preços BRL somente com registro de até 72h, outros preços não confirmados. Origem e data explícitas, links oficiais do produto, sem incorporar registros externos ao histórico local.
+- Integração temporária com endpoint público legado: até 10 consultas novas/minuto por processo, cache 30 minutos, até dez páginas; a migração para v1 requer chave de API gratuita autorizada. Mantém fallback oficial independente. Testes simulados de preço/região/links/paginação aprovados; falta validar nova publicação. Não significa catálogo oficial integral recuperado.
