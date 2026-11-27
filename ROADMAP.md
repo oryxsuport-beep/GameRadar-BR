@@ -99,3 +99,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - v3.5-prep.2 confirmado em produção; /admin retornou 404 sem senha configurada, conforme previsto. Banco ainda não conectado.
 - Exportação JSON de preços públicos e sessões agregadas em memória, no endpoint /admin/backup protegido pela mesma autenticação. Sem credenciais ou identificadores de visitantes no arquivo; não é backup integral do banco, e não inclui registros de processos anteriores.
 - Fila limitada aos registros existentes em memória para reenviar preços não sincronizados nas próximas consultas, respeitando pausa de falha e limite de concorrência. Testes simulados de recuperação, drenagem e exportação aprovados. Falta validar produção, configuração da senha e persistência real. Nenhum custo adicional.
+
+## v3.5-prep.4 — testes automatizados
+- Comandos npm test e npm run check sem dependências externas. Novos testes de regressão egdata e de servidor HTTP local, incluindo compilação do script do navegador, /health, bloqueio de /admin e /admin/backup sem senha, validação de histórico e rejeição de origem externa.
+- Workflow GitHub Actions configurado para executar os testes em pushes main e pull requests usando Node 22, sem segredos. Não bloqueia publicação Render automaticamente; execução da suíte precisa ser confirmada.
+- Banco permanente e senha administrativa continuam pendentes. Nenhum serviço pago contratado.
