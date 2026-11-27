@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {egdataRows} from '../epic-fallback.mjs';
+const now=Date.parse('2026-11-27T15:30:00Z');
+const offer={id:'2fc1e4a75a004a479b0bbc2ac0fef7f9',title:'Kong: Survivor Instinct',offerType:'BASE_GAME',offerMappings:[{pageType:'productHome',pageSlug:'kong-survivor-instinct-d5f177'}],price:{country:'BR',updatedAt:'2026-11-27T15:14:40.834Z',price:{currencyCode:'BRL',discountPrice:4019,originalPrice:6699}}};
+const rows=(o=offer)=>egdataRows({offers:[o],total:1},0,now).rows;
+test('recent Brazilian price retains product link and source',()=>{const row=rows()[0];assert.equal(row.brPrice,4019);assert.equal(row.brOriginal,6699);assert.equal(row.thirdParty,true);assert.equal(row.url,'https://store.epicgames.com/pt-BR/p/kong-survivor-instinct-d5f177')});
+test('old and foreign prices are hidden',()=>{for(const price of [{...offer.price,updatedAt:'2026-11-03T00:00:00Z'},{...offer.price,country:'US'}])assert.equal(rows({...offer,price})[0].brPrice,null)});
+test('rejects preorders and invalid product links',()=>{assert.equal(rows({...offer,prePurchase:true}).length,0);assert.equal(rows({...offer,offerMappings:[],productSlug:'../unsafe'}).length,0)});
+test('deduplicates product paths and caps pages',()=>{assert.equal(egdataRows({offers:[offer,offer],total:1000},0,now).rows.length,1);assert.equal(egdataRows({offers:[offer],total:1000},9,now).hasMore,false)});
