@@ -135,3 +135,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Ciclo no servidor a cada 10 minutos enquanto ativo, com primeiro ciclo após 30 segundos: destaques, feed de resgates Epic, câmbio e lotes rotativos de seis títulos Steam. Sem sobreposição, respeitando cache e limites das fontes. Não atualiza todo o catálogo a cada ciclo.
 - Ofertas na página inicial são reconsultadas a cada 10 minutos enquanto visível, preservando filtros, com botão manual e indicação de hora da consulta. Aba Lojas mostra último ciclo; conclusão não garante sucesso de cada fonte.
 - v3.5-prep.9 confirmada online pelo Render; sintaxe e fixture de ciclo aprovadas. Falta validar primeira execução em produção. Render gratuito suspende processo ocioso; atualização 24h não garantida. Sem pings para evitar suspensão, sem serviço pago. Banco permanente pendente.
+
+## v3.5-prep.11 — validade dos destaques
+- v3.5-prep.10 confirmada em produção: primeiro ciclo concluído às 15:59:15 UTC com 86 ofertas retornadas, 6 títulos Steam, feed gratuito e câmbio; integração principal Epic indisponível, fonte complementar respondeu.
+- Horário real de obtenção do cache registrado para Epic oficial/feed e consultas CheapShark (horário de consulta do agregador, não de atualização do preço na loja). Destaques exigem consulta em até 15 minutos, ou registro egdata em até 24 horas. Interface remove destaques vencidos enquanto aberta. Outros resultados podem conter preços de cache; confirme na loja.
+- Sintaxe e testes simulados de validade aprovados. Publicação e comportamento no navegador ainda a confirmar. Limitações da hospedagem gratuita e banco permanente permanecem.
