@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {spawn} from 'node:child_process';
+import {readFile} from 'node:fs/promises';
+import {Script} from 'node:vm';
+test('browser script compiles',async()=>{const html=await readFile(new URL('../index.html',import.meta.url),'utf8');assert.doesNotThrow(()=>new Script(html.split('<script>')[1].split('</script>')[0]))});
+test('local server protects admin and handles malformed requests', {timeout:15000},async(t)=>{
+  const child=spawn(process.execPath,['server.mjs'],{cwd:new URL('../',import.meta.url),env:{...process.env,PORT:'0',GR_ADMIN_PASSWORD:'',SUPABASE_URL:'',SUPABASE_SERVICE_ROLE_KEY:''},stdio:['ignore','pipe','pipe']});
+  t.after(()=>child.kill());
+  let stderr='';child.stderr.on('data',s=>stderr+=s);
+  const port=await new Promise((resolve,reject)=>{let buf='';child.stdout.on('data',s=>{buf+=s;const m=/port=(\d+)/.exec(buf);if(m)resolve(Number(m[1]))});child.once('error',reject);child.once('exit',code=>reject(new Error('Server exited: '+code+' '+stderr)))});
+  const url='http://127.0.0.1:'+port;
+  const health=await fetch(url+'/health');assert.equal(health.status,200);assert.equal((await health.json()).ok,true);assert.equal(health.headers.get('cache-control'),'no-store');
+  assert.equal((await fetch(url+'/admin')).status,404);
+  assert.equal((await fetch(url+'/admin/backup')).status,404);
+  assert.equal((await fetch(url+'/api/history?id=invalid')).status,400);
+  assert.equal((await fetch(url+'/api/visit',{method:'POST',headers:{origin:'https://untrusted.example'}})).status,403);
+  assert.equal((await fetch(url+'/health',{method:'POST'})).status,405);
+  const root=await fetch(url+'/');assert.equal(root.status,200);assert.match(await root.text(),/GAME.*RADAR/s);
+});
