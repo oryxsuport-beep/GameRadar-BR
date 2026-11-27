@@ -84,3 +84,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - v3.4.2 confirmada em produção: catálogo complementar Epic retornou 21 produtos com preços BRL na primeira página.
 - Escritas do histórico serializadas por registro; validação de datas e preços, limite de quatro escritas simultâneas e pausa após falhas. SQL preparado com trigger que preserva observações mais recentes. Status do armazenamento visível na seção Lojas.
 - Testes simulados de memória, observações fora de ordem e gravação concorrente aprovados. A integração Supabase não está conectada; schema ainda não aplicado, credenciais não configuradas e persistência real não testada. Nenhum plano pago contratado. A memória continua temporária e registros não enviados não têm garantia de recuperação.
+
+## v3.5-prep.1 — estatísticas de sessões
+- Consulta de métricas e logs de requisições Render não retornou registros históricos de visitas; não é possível estimar visitantes anteriores nem excluir o proprietário retroativamente.
+- Contagem agregada anônima de sessões por aba após 30 segundos visíveis, uma tentativa por sessionStorage, respeitando DNT/GPC e opção de exclusão em Meu perfil. Sem coletar identificador de visitante no contador. Registros agregados GR_VISITS nos logs de aplicação; contagem temporária reinicia com processo/dia UTC, logs dependem da retenção Render. Não equivale a pessoas únicas, pode incluir bots e excluir sessões curtas ou bloqueadas.
+- Endpoint POST restrito a origem oficial, limitado por minuto. Testes simulados de limites, dia e origem aprovados. Falta testar em produção e armazenar agregados permanentemente após conexão do Supabase.
