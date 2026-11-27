@@ -69,3 +69,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Catálogo geral Epic ainda retorna 502 no Render; resgates funcionam por fonte independente.
 - Validadores de links e correspondência CheapShark extraídos para offers.mjs; testes Node adicionados em tests/offers.test.mjs. Fixtures JavaScript aprovadas; suíte Node completa e publicação precisam ser validadas.
 - Paginação de jogos grátis preserva os resultados anteriores caso uma próxima consulta falhe. Supabase ainda não conectado.
+
+## v3.4.1 — recuperação do catálogo Epic
+- v3.4 confirmada em produção; /api/free retornou Bread and Fred com link de produto e preço original. /api/browse Epic continuava em HTTP 502.
+- Catálogo principal continua sendo consultado; em falha, usa seleção limitada do feed oficial de promoções com preço BRL positivo e link específico. Resgates gratuitos permanecem na área Grátis. Interface identifica cobertura parcial ou fonte indisponível, sem simular catálogo completo. Testes simulados de filtragem, deduplicação e paginação aprovados.
+- Falta validar nova publicação e recuperar a integração completa com a Epic; Supabase ainda depende de conexão.
