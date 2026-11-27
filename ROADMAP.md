@@ -48,3 +48,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Produtos internacionais sem classificação confirmada recebem indicação de tipo não confirmado quando exibidos nos cards.
 - Catálogo direto GOG consultado, mas retornou zero produtos no teste; não foi ativado sem dados válidos.
 - Supabase disponível como integração externa, mas ainda depende de autorização do proprietário e configuração do projeto.
+
+## v3.3 — cache e transparência
+- Publicação v3.2 confirmada pelo Render. Reteste HTTP externo retornou 503 inclusive em /health; logs confirmam início do processo, mas não explicam a indisponibilidade.
+- Cache fresco reduzido a cinco minutos; fallback temporário de até uma hora identificado pelo horário original nas ofertas Steam. Limite global de 24 consultas externas simultâneas, descarte incremental do cache e métricas agregadas em /api/status.
+- Banco Supabase ainda não conectado. A nova versão precisa de testes HTTP reais.
