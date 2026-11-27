@@ -114,3 +114,9 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Lista local separada dos favoritos, até 200 jogos, disponível em Meu perfil. Backup versão 2 inclui desejos e continua importando versão 1. Metadados salvos sem preço antigo; favoritos também passam a ocultar preços salvos.
 - Compartilhamento por endereço específico do GameRadar para IDs Steam e CheapShark, com consulta ao abrir. Produtos Epic com URL válida compartilham o endereço oficial; não há consulta automática por ID Epic salvo. Compartilhamento nativo quando suportado, com cópia alternativa.
 - v3.5-prep.5 confirmada pelo Render. Sintaxe e fixtures de links válidos/inválidos aprovadas; falta testar interação real e publicação. Banco permanente e painel sem senha continuam pendentes.
+
+## v3.5-prep.7 — desempenho no celular
+- Página inicial HTML comprimida em gzip quando o navegador aceita; respostas privadas do painel não são comprimidas. Negociação respeita recusa explícita.
+- Ofertas Steam preparadas em paralelo com CheapShark e Epic, consultas simultâneas agregadas e resultado reaproveitado por 30 segundos. Mantém validações de preços existentes.
+- Esqueletos de carregamento acessíveis, respeito à preferência de movimento reduzido e decodificação assíncrona das capas.
+- v3.5-prep.6 confirmada em produção pelo Render. Sintaxe e fixtures de compressão/cache aprovadas; suíte Node e ganhos reais de desempenho ainda não medidos. Banco e painel aguardam configuração.
