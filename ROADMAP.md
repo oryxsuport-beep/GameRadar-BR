@@ -109,3 +109,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Atalhos rápidos para jogos até R$ 25, até R$ 50, descontos de 75% ou mais, Steam e Epic; filtros de plataforma e de jogos completos confirmados.
 - Recomendações locais por gêneros dos favoritos, apenas entre ofertas válidas da amostra atual. Não usa rastreamento de visitantes nem IA externa.
 - Sintaxe do script e fixtures de seleção aprovadas; falta validar a interface publicada em navegador. v3.5-prep.4 confirmada online; suíte CI completa ainda não confirmada. Banco e senha administrativa seguem pendentes.
+
+## v3.5-prep.6 — lista de desejos e compartilhamento
+- Lista local separada dos favoritos, até 200 jogos, disponível em Meu perfil. Backup versão 2 inclui desejos e continua importando versão 1. Metadados salvos sem preço antigo; favoritos também passam a ocultar preços salvos.
+- Compartilhamento por endereço específico do GameRadar para IDs Steam e CheapShark, com consulta ao abrir. Produtos Epic com URL válida compartilham o endereço oficial; não há consulta automática por ID Epic salvo. Compartilhamento nativo quando suportado, com cópia alternativa.
+- v3.5-prep.5 confirmada pelo Render. Sintaxe e fixtures de links válidos/inválidos aprovadas; falta testar interação real e publicação. Banco permanente e painel sem senha continuam pendentes.
