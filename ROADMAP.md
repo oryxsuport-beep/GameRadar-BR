@@ -104,3 +104,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Comandos npm test e npm run check sem dependências externas. Novos testes de regressão egdata e de servidor HTTP local, incluindo compilação do script do navegador, /health, bloqueio de /admin e /admin/backup sem senha, validação de histórico e rejeição de origem externa.
 - Workflow GitHub Actions configurado para executar os testes em pushes main e pull requests usando Node 22, sem segredos. Não bloqueia publicação Render automaticamente; execução da suíte precisa ser confirmada.
 - Banco permanente e senha administrativa continuam pendentes. Nenhum serviço pago contratado.
+
+## v3.5-prep.5 — descoberta de ofertas
+- Atalhos rápidos para jogos até R$ 25, até R$ 50, descontos de 75% ou mais, Steam e Epic; filtros de plataforma e de jogos completos confirmados.
+- Recomendações locais por gêneros dos favoritos, apenas entre ofertas válidas da amostra atual. Não usa rastreamento de visitantes nem IA externa.
+- Sintaxe do script e fixtures de seleção aprovadas; falta validar a interface publicada em navegador. v3.5-prep.4 confirmada online; suíte CI completa ainda não confirmada. Banco e senha administrativa seguem pendentes.
