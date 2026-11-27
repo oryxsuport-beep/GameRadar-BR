@@ -9,7 +9,8 @@ Objetivo: comparar ofertas de jogos e keys com preços em reais, transparência 
 - [x] v2.1 interface básica: carrossel de jogos populares, filtros de preço/desconto/gênero/idioma, modo compacto, paginação, navegação móvel, pesquisas recentes. Busca por link/voz e cobertura de plataformas ainda pendentes.
 - [x] v2.2 dados (parcial): histórico Steam Brasil observado em memória do servidor e no navegador, interface 30/90/365 dias, menor/maior/último preço, aviso de preço acima do mínimo observado, status da última consulta às fontes, descarte de ofertas datadas há mais de 72 horas. Testes simulados aprovados.
 - [ ] v2.2 persistência: adaptador Supabase e schema SQL preparados; falta criar/autorizar projeto externo, aplicar schema, configurar segredos no Render e validar leitura/escrita. Histórico de outras lojas, coleta contínua, cache persistente e detecção robusta de descontos ainda pendentes.
-- [ ] v2.3 contas: autenticação opcional, sincronização, listas de desejos, alertas por navegador/email/Telegram/Discord e painel de economia.
+- [x] v2.3 perfil local (parcial): favoritos, backup/importação, metas em BRL para Steam e CheapShark, consultas em primeiro plano a cada cinco minutos, notificações opcionais do navegador quando suportadas.
+- [ ] v2.3 contas online: autenticação, sincronização, notificações em segundo plano, email/Telegram/Discord e painel de economia; dependem de infraestrutura externa autorizada.
 - [ ] v2.4 expansão: Xbox, PlayStation, Nintendo, assinaturas, bundles, gift cards e categorias gratuitas.
 - [ ] v2.5 inteligência: requisitos de PC, orçamento, recomendações, avaliações, duração, cooperativo, lançamentos e previsão de preço com incerteza.
 - [ ] v3.0 infraestrutura: PWA, administração, testes de regressão, backups, proteção de API e acessibilidade.
