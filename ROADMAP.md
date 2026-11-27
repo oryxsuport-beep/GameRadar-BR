@@ -94,3 +94,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - v3.5-prep.1 confirmado online; consulta de logs GR_VISITS não retornou eventos no intervalo verificado. Não significa ausência de pessoas.
 - Painel /admin com contagens agregadas por dia UTC, estado do banco e fontes. Até sete dias de registros em memória, reiniciados com processo. Autenticação HTTP Basic com usuário admin, senha forte de 32–256 caracteres definida exclusivamente em GR_ADMIN_PASSWORD no Render; sem senha válida, rota retorna 404. Comparação de hash de tamanho fixo, limitação de tentativas malsucedidas, no-store e noindex. Nenhuma credencial criada automaticamente.
 - Testes de regressão adicionados; fixtures de decisões de acesso e contagem aprovadas. Suíte Node e autenticação real ainda precisam de teste. Persistência depende de Supabase.
+
+## v3.5-prep.3 — exportação e recuperação
+- v3.5-prep.2 confirmado em produção; /admin retornou 404 sem senha configurada, conforme previsto. Banco ainda não conectado.
+- Exportação JSON de preços públicos e sessões agregadas em memória, no endpoint /admin/backup protegido pela mesma autenticação. Sem credenciais ou identificadores de visitantes no arquivo; não é backup integral do banco, e não inclui registros de processos anteriores.
+- Fila limitada aos registros existentes em memória para reenviar preços não sincronizados nas próximas consultas, respeitando pausa de falha e limite de concorrência. Testes simulados de recuperação, drenagem e exportação aprovados. Falta validar produção, configuração da senha e persistência real. Nenhum custo adicional.
