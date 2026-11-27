@@ -12,3 +12,18 @@ alter table public.game_price_history enable row level security;
 revoke all on public.game_price_history from anon, authenticated;
 grant select, insert, update on public.game_price_history to service_role;
 -- Configure SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in Render, never in GitHub or browser JS.
+
+-- Preserve the newest observation even across concurrent application instances.
+create or replace function public.keep_newest_game_price()
+returns trigger language plpgsql set search_path = '' as $$
+begin
+  if new.observed_at < old.observed_at then
+    return old;
+  end if;
+  return new;
+end;
+$$;
+drop trigger if exists keep_newest_game_price on public.game_price_history;
+create trigger keep_newest_game_price before update on public.game_price_history
+for each row execute function public.keep_newest_game_price();
+revoke execute on function public.keep_newest_game_price() from public, anon, authenticated;
