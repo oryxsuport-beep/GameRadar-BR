@@ -89,3 +89,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Consulta de métricas e logs de requisições Render não retornou registros históricos de visitas; não é possível estimar visitantes anteriores nem excluir o proprietário retroativamente.
 - Contagem agregada anônima de sessões por aba após 30 segundos visíveis, uma tentativa por sessionStorage, respeitando DNT/GPC e opção de exclusão em Meu perfil. Sem coletar identificador de visitante no contador. Registros agregados GR_VISITS nos logs de aplicação; contagem temporária reinicia com processo/dia UTC, logs dependem da retenção Render. Não equivale a pessoas únicas, pode incluir bots e excluir sessões curtas ou bloqueadas.
 - Endpoint POST restrito a origem oficial, limitado por minuto. Testes simulados de limites, dia e origem aprovados. Falta testar em produção e armazenar agregados permanentemente após conexão do Supabase.
+
+## v3.5-prep.2 — painel privado
+- v3.5-prep.1 confirmado online; consulta de logs GR_VISITS não retornou eventos no intervalo verificado. Não significa ausência de pessoas.
+- Painel /admin com contagens agregadas por dia UTC, estado do banco e fontes. Até sete dias de registros em memória, reiniciados com processo. Autenticação HTTP Basic com usuário admin, senha forte de 32–256 caracteres definida exclusivamente em GR_ADMIN_PASSWORD no Render; sem senha válida, rota retorna 404. Comparação de hash de tamanho fixo, limitação de tentativas malsucedidas, no-store e noindex. Nenhuma credencial criada automaticamente.
+- Testes de regressão adicionados; fixtures de decisões de acesso e contagem aprovadas. Suíte Node e autenticação real ainda precisam de teste. Persistência depende de Supabase.
