@@ -41,3 +41,10 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Falha observada: catálogo geral Epic. A consulta GraphQL direta em store.epicgames.com respondeu com dados BRL; adaptador atualizado para esse host, aguardando reteste no Render.
 - Comparador agora separa preços com Brasil informado dos globais ou sem região confirmada; ofertas de outras regiões não recebem destaque brasileiro. Horário real do cache Steam exibido.
 - Banco externo ainda não configurado. Não há validação completa de todas as lojas ou instalação PWA em aparelho real.
+
+## v3.2 — pesquisa por link e tratamento de falhas
+- v3.1 confirmada online. Reteste do catálogo Epic no Render ainda devolveu HTTP 502; busca Steam continua respondendo. O catálogo Epic tem pausa de 90 segundos após falha, independente do feed de resgates grátis, e mensagem com alternativa oficial.
+- Pesquisa por URL oficial de jogo Steam, extraindo apenas ID numérico e nunca consultando endereço fornecido pelo visitante. Links de outras lojas não são aceitos nessa função.
+- Produtos internacionais sem classificação confirmada recebem indicação de tipo não confirmado quando exibidos nos cards.
+- Catálogo direto GOG consultado, mas retornou zero produtos no teste; não foi ativado sem dados válidos.
+- Supabase disponível como integração externa, mas ainda depende de autorização do proprietário e configuração do projeto.
