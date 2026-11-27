@@ -120,3 +120,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Ofertas Steam preparadas em paralelo com CheapShark e Epic, consultas simultâneas agregadas e resultado reaproveitado por 30 segundos. Mantém validações de preços existentes.
 - Esqueletos de carregamento acessíveis, respeito à preferência de movimento reduzido e decodificação assíncrona das capas.
 - v3.5-prep.6 confirmada em produção pelo Render. Sintaxe e fixtures de compressão/cache aprovadas; suíte Node e ganhos reais de desempenho ainda não medidos. Banco e painel aguardam configuração.
+
+## v3.5-prep.8 — ferramentas de hardware e orçamento
+- Perfil de PC validado, plataforma Windows/Linux/macOS, VRAM dedicada opcional. Compara RAM, disco e VRAM apenas com requisitos numéricos explícitos de Windows, informa plataforma listada e exibe CPU/GPU/sistema lado a lado para conferência manual. Não estima FPS nem garante compatibilidade.
+- Planejador por menor preço, desconto ou popularidade Steam informada; opção padrão de preços regionais em reais. Seleção da amostra atual, sem garantia de ótimo global.
+- v3.5-prep.7 confirmada online pelo Render; ganho de velocidade ainda não medido. Sintaxe e testes simulados das ferramentas aprovados; falta validação no navegador. Banco e senha administrativa continuam pendentes.
