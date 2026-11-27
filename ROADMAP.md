@@ -35,3 +35,9 @@ GG.deals, Nuuvem, Eneba e outras integrações comerciais dependem de credenciai
 
 ## Configuração de histórico persistente
 Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY exclusivamente como variáveis de ambiente no Render. Nunca coloque a chave no GitHub ou na interface. Enquanto não configurado, a API usa memória temporária limitada; os registros locais permanecem no navegador. O banco gratuito do Render expira em 30 dias, portanto não foi criado para esta finalidade. Não há coleta contínua ou garantia de armazenamento permanente nesta versão.
+
+## v3.1 — validação e estabilidade
+- Validado em produção na v3.0: /health, /api/status, /api/history, /api/search (Red Dead 2), /api/free, manifesto PWA, /api/gamepass (PC) e /api/compare-all (Red Dead 2).
+- Falha observada: catálogo geral Epic. A consulta GraphQL direta em store.epicgames.com respondeu com dados BRL; adaptador atualizado para esse host, aguardando reteste no Render.
+- Comparador agora separa preços com Brasil informado dos globais ou sem região confirmada; ofertas de outras regiões não recebem destaque brasileiro. Horário real do cache Steam exibido.
+- Banco externo ainda não configurado. Não há validação completa de todas as lojas ou instalação PWA em aparelho real.
