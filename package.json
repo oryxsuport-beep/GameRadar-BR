@@ -1,0 +1,14 @@
+{
+  "name": "gameradar-br",
+  "version": "3.5.0-prep.4",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check server.mjs && node --test tests/*.test.mjs"
+  }
+}
