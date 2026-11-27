@@ -63,3 +63,9 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - Produção confirmada: Cyberpunk 2077 retornou 7 ofertas (3 com link de produto ou redirect); Red Dead Redemption 2 retornou 12 (6 com link de produto ou redirect). Os destinos finais dos redirects não foram confirmados.
 - Resumo de menor preço e quantidade agora acompanha os filtros ativos. Ofertas de outras regiões não entram no menor preço brasileiro; ofertas somente de comparação não entram no resumo quando filtradas.
 - Prioridades restantes: links de produto verificados, estabilidade Epic, integração de novas lojas, Supabase, autenticação/sincronização, notificações e auditoria real.
+
+## v3.4 — links de resgate e regressão
+- A consulta real do feed Epic apresentou Bread and Fred com preço original R$ 39,99 e slug de produto específico. O código agora usa os mapeamentos de produto oficiais, exige BRL e desconto de 100% ativo, exibe preço original e omite o botão se o endereço específico não existir.
+- Catálogo geral Epic ainda retorna 502 no Render; resgates funcionam por fonte independente.
+- Validadores de links e correspondência CheapShark extraídos para offers.mjs; testes Node adicionados em tests/offers.test.mjs. Fixtures JavaScript aprovadas; suíte Node completa e publicação precisam ser validadas.
+- Paginação de jogos grátis preserva os resultados anteriores caso uma próxima consulta falhe. Supabase ainda não conectado.
