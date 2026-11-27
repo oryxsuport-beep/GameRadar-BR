@@ -79,3 +79,8 @@ Execute database/history.sql em um projeto Supabase autorizado. Configure SUPABA
 - v3.4.1 online: rota Epic retornou nove jogos via feed oficial, sem HTTP 502.
 - egdata retorna catálogo de terceiros com milhares de registros; preços BRL somente com registro de até 72h, outros preços não confirmados. Origem e data explícitas, links oficiais do produto, sem incorporar registros externos ao histórico local.
 - Integração temporária com endpoint público legado: até 10 consultas novas/minuto por processo, cache 30 minutos, até dez páginas; a migração para v1 requer chave de API gratuita autorizada. Mantém fallback oficial independente. Testes simulados de preço/região/links/paginação aprovados; falta validar nova publicação. Não significa catálogo oficial integral recuperado.
+
+## v3.5-prep — preparação da persistência
+- v3.4.2 confirmada em produção: catálogo complementar Epic retornou 21 produtos com preços BRL na primeira página.
+- Escritas do histórico serializadas por registro; validação de datas e preços, limite de quatro escritas simultâneas e pausa após falhas. SQL preparado com trigger que preserva observações mais recentes. Status do armazenamento visível na seção Lojas.
+- Testes simulados de memória, observações fora de ordem e gravação concorrente aprovados. A integração Supabase não está conectada; schema ainda não aplicado, credenciais não configuradas e persistência real não testada. Nenhum plano pago contratado. A memória continua temporária e registros não enviados não têm garantia de recuperação.
