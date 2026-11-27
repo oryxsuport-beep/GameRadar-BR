@@ -15,7 +15,8 @@ Objetivo: comparar ofertas de jogos e keys com preços em reais, transparência 
 - [ ] v2.4 expansão restante: validação real do Game Pass e catálogo Steam, preços de compra de consoles, comparação de preços de assinaturas, catálogo automatizado PlayStation/Nintendo, bundles e gift cards.
 - [x] v2.5 ferramentas (parcial): perfil de hardware local, comparação numérica conservadora de RAM e armazenamento com requisitos Steam, descrição e modos de jogo informados pela fonte, recomendações por gêneros em comum, planejador de compras em BRL, análise descritiva de preços observados com mínimo de três dias.
 - [ ] v2.5 restante: benchmarks verificáveis de CPU/GPU, estimativas de desempenho, duração dos jogos, avaliações, previsão de preço e validação real das ferramentas. Não há IA generativa ou garantia de compatibilidade nesta versão.
-- [ ] v3.0 infraestrutura: PWA, administração, testes de regressão, backups, proteção de API e acessibilidade.
+- [x] v3.0 infraestrutura (parcial): manifesto PWA, ícones PNG, instalação pelo navegador, fallback offline sem cache de ofertas, aviso de conexão, cabeçalhos de segurança, limite de requisições, foco visível e testes de regressão de manifesto/limites.
+- [ ] v3.0 restante: validar instalação em dispositivos e APIs reais, testar suite Node completa, autenticação administrativa, backups remotos, persistência, monitoramento contínuo e auditoria de segurança. Limite por endereço de conexão pode ser compartilhado entre visitantes atrás do proxy do Render; calibrar com métricas reais.
 
 ## Critérios de aceite
 1. Nunca exibir zero como preço pago ou inventar oferta ausente.
